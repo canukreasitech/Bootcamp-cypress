@@ -14,7 +14,7 @@ function kategoriUsia(usia){
 
 
 //set variabel usia
-const dataUsia = [5, 12, 15, 25, 30, 35, 40, 80, 76];
+const dataUsia = [5, 8, 12, 15, 25, 30, 35, 40, 80, 76];
 
 //set variable kategori usia
 let anak = 0;
