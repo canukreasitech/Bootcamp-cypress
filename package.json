@@ -1,0 +1,26 @@
+{
+  "name": "latihan-1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha \"latihan 2/*.test.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/canukreasitech/Bootcamp-cypress.git"
+  },
+  "author": "canu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/canukreasitech/Bootcamp-cypress/issues"
+  },
+  "homepage": "https://github.com/canukreasitech/Bootcamp-cypress#readme",
+  "keywords": [],
+  "description": "",
+  "devDependencies": {
+    "chai": "^6.2.0",
+    "mocha": "^11.7.4",
+    "supertest": "^7.1.4"
+  }
+  
+}
