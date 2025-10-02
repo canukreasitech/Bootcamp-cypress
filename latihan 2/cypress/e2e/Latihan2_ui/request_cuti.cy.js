@@ -16,7 +16,7 @@ describe('Flow 3 - Employee Request & Admin Approve Leave', () => {
 
     // Klik dropdown Leave Type
     cy.get('.oxd-select-text-input').click()
-
+c
     // Pilih jenis cuti (Vacation)
     cy.contains('CAN - Vacation', { timeout: 6000 }).click({ force: true })
 
