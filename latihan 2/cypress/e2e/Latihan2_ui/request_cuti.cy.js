@@ -16,17 +16,21 @@ describe('Flow 3 - Employee Request & Admin Approve Leave', () => {
 
     // Klik dropdown Leave Type
     cy.get('.oxd-select-text-input').click()
-c
+
     // Pilih jenis cuti (Vacation)
     cy.contains('CAN - Vacation', { timeout: 6000 }).click({ force: true })
 
     // Isi tanggal
-    cy.get(':nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-date-wrapper > .oxd-date-input > .oxd-input').eq(0).type('10-10-2025')
+    cy.get(':nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-date-wrapper > .oxd-date-input > .oxd-input').eq(0).type('2025-10-10')
    
 
     // Submit
     cy.get('.oxd-button').click()
     cy.contains('Success', { timeout: 6000 }).should('be.visible')
+
+    //logout
+     cy.get('.oxd-userdropdown-name').click()
+    cy.contains('Logout').click()
 
     // Login sebagai Admin
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
@@ -37,9 +41,13 @@ c
     // Approve leave Budi
     cy.contains('Leave').click()
     cy.contains('Leave List').click()
-    cy.contains('Budi Santoso', { timeout: 10000 }).should('be.visible').click()
+    cy.contains('Ahmad Maulana', { timeout: 10000 }).should('be.visible').click()
     cy.contains('Approve').click({ force: true })
     cy.contains('Successfully Updated', { timeout: 6000 }).should('be.visible')
+
+    //logout
+     cy.get('.oxd-userdropdown-name').click()
+    cy.contains('Logout').click()
 
     // Login kembali sebagai Employee → cek status
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
@@ -49,7 +57,8 @@ c
 
     cy.contains('Leave').click()
     cy.contains('My Leave').click()
-    cy.contains('Approved', { timeout: 10000 }).should('be.visible')
+    cy.scrollTo('top')
+    cy.contains('Scheduled (1.00)', { timeout: 60000 }).should('be.visible')
   })
 
   it('Negative Case - Employee gagal apply cuti tanpa tanggal', () => {
